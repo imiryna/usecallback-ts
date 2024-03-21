@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { CitiesList } from "./components/CitiesList";
 
 const listOfCities = ["Beijing", "Tokyo", "Kinshasa", "Moscow", "Jakarta"];
 
@@ -15,7 +16,11 @@ export const App = () => {
     setName(e.target.value);
   };
 
-  const handleRemoveClick = ( ) => {};
+  const handleRemoveClick = (item: string) => {
+    const filteredList = list.filter((listItem) => listItem !== item);
+
+    setList(filteredList);
+  };
 
   return (
     <div>
