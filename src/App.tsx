@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+const listOfCities = ["Beijing", "Tokyo", "Kinshasa", "Moscow", "Jakarta"];
+
+export const App = () => {
+  const [name, setName] = useState("");
+  const [list, setList] = useState(listOfCities);
+
+  const handleClick = () => {
+    setList([...list, name]);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const handleRemoveClick = ( ) => {};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="text" value={name} onChange={handleChange} />
+      <button onClick={handleClick}>Add</button>
+      <CitiesList list={list} onRemoveClick={handleRemoveClick} />
     </div>
   );
-}
-
-export default App;
+};
