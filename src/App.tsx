@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { CitiesList } from "./components/CitiesList";
+import { Wrap, Input, Buttom, InputBox } from "./App.styled";
 
 const listOfCities = ["Beijing", "Tokyo", "Kinshasa", "Moscow", "Jakarta"];
 
@@ -25,10 +26,12 @@ export const App = () => {
   );
 
   return (
-    <div>
-      <input type="text" value={name} onChange={handleChange} />
-      <button onClick={handleClick}>Add</button>
+    <Wrap>
+      <InputBox>
+        <Input type="text" value={name} onChange={handleChange} />
+        <Buttom onClick={handleClick}>Add</Buttom>
+      </InputBox>
       <CitiesList list={list} onRemoveClick={handleRemoveClick} />
-    </div>
+    </Wrap>
   );
 };
