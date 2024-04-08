@@ -1,4 +1,5 @@
 import React from "react";
+import { List } from "./Cities.styled";
 
 type IProps = {
   city: string;
@@ -8,5 +9,5 @@ type IProps = {
 export const City = ({ city, onRemoveClick }: IProps) => {
   const handleCityClick = () => onRemoveClick(city);
 
-  return <div onClick={handleCityClick}>{city}</div>;
+  return <List onClick={handleCityClick}>{city}</List>;
 };
